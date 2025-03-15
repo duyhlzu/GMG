@@ -28,7 +28,7 @@ We propose a novel approach to video prediction by introducing the Global Focus 
 Our code is based on [OpenSTL](https://github.com/chengtan9907/OpenSTL). You need to migrate the model code to the OpenSTL framework to ensure a fairer comparison.
 - `configs/:` You can conduct experiments by adding the configs used by GMG.
 - `openstl/methods:` Contains defined training method of GMG. You need to add the file `gsamotionrnn.py` and replace the original `__init__.py`.
-- `openstl/models:` The basic structure code for GMG is included. You need to add the file `gsamotionrnn_model.py` and replace the `original __init__.py`.
+- `openstl/models:` The basic structure code for GMG is included. You need to add the file `gsamotionrnn_model.py` and replace the original `__init__.py`.
 - `openstl/modules:` The main structure of GMG includes GMG-s, GMG-m, and GMG-L. The `gsamotion_modules.py` file contains the code for ST-ConvLSTM, Global Focus Module, and Self-Attention Memory. The code for the Motion Guided Module is included in `modules/layers/MotionGRU.py`. You need to add these files and replace the original `__init__.py` (in both directories).
 - `openstl/api:` For the model's experimental setup, you need to replace the original `__init__.py`.
 - `openstl/utils:` Please replace `parser.py`, as it pertains to the recognition of experiment command inputs.
