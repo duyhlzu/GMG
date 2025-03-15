@@ -131,6 +131,14 @@ python tools/train.py --gpus 0 1 2 3 -d weather --epoch 100 -c configs/weather/t
 | WaST (AAAI’2024)               | 22.0719  | 70.8779  | 0.9491   | 23.7451  |
 | **GMG (Ours)**                 | **19.0741**| **60.7413**| **0.9586**| **24.4606**|
 
+## Datasets
+
+- [x] [CIKM2017](https://tianchi.aliyun.com/competition/entrance/231596/introduction) (CIKM' 2017) [[download](https://tianchi.aliyun.com/competition/entrance/231596/information)]
+- [x] [Shanghai2020](https://zenodo.org/records/7251972) (Dataset) [[download](https://zenodo.org/records/7251972)]
+- [x] [TaxiBJ](https://arxiv.org/abs/1610.00081) (AAAI'2017) [[download](https://github.com/TolicWang/DeepST/tree/master/data/TaxiBJ)]
+- [x] [WeatherBench](https://arxiv.org/abs/2002.00469) (ArXiv'2020) [[download](https://github.com/pangeo-data/WeatherBench)]
+- [x] [Moving MNIST](http://arxiv.org/abs/1502.04681) (ICML'2015) [[download](http://www.cs.toronto.edu/~nitish/unsupervised_video/)]
+
 ## Acknowledgments
 
 Our code is based on [OpenSTL](https://github.com/chengtan9907/OpenSTL) and [MotionRNN](https://github.com/thuml/MotionRNN). We greatly appreciate the code base they provided for this project.
