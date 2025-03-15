@@ -2,7 +2,7 @@
 Official repository for GMG: A Video Prediction Method Based on Global  Focus and Motion Guided. [Paper Link Coming Soon]
 
 <p align="left">
-<a href="https://github.com/duyhlzu/GMG/LICENSE" alt="license">
+<a href="https://github.com/duyhlzu/GMG/blob/main/LICENSE" alt="license">
     <img src="https://img.shields.io/badge/license-Apache--2.0-%23002FA7" /></a>
 </p>
 
