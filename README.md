@@ -2,6 +2,8 @@
 <p align="left">
 <a href="https://github.com/duyhlzu/GMG/blob/main/LICENSE" alt="license">
     <img src="https://img.shields.io/badge/license-Apache--2.0-%23002FA7" /></a>
+<a href="https://img.shields.io/github/stars/duyhlzu/GMG" alt="arXiv">
+    <img src="https://img.shields.io/github/stars/duyhlzu/GMGL" /></a>
 </p>
 Official repository for GMG: A Video Prediction Method Based on Global  Focus and Motion Guided. [Paper Link Coming Soon]
 
