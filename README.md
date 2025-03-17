@@ -1,11 +1,14 @@
 # GMG: A Video Prediction Method Based on Global  Focus and Motion Guided.
 <p align="left">
+<a href="https://arxiv.org/abs/2503.11297" alt="arXiv">
+    <img src="https://img.shields.io/badge/arXiv-2503.11297-b31b1b.svg?style=flat" /></a>
 <a href="https://github.com/duyhlzu/GMG/blob/main/LICENSE" alt="license">
     <img src="https://img.shields.io/badge/license-Apache--2.0-%23002FA7" /></a>
 <a href="https://img.shields.io/github/stars/duyhlzu/GMG" alt="arXiv">
     <img src="https://img.shields.io/github/stars/duyhlzu/GMG" /></a>
 </p>
-Official repository for GMG: A Video Prediction Method Based on Global  Focus and Motion Guided. [Paper Link Coming Soon]
+Official repository for GMG: A Video Prediction Method Based on Global Focus and Motion Guided. 
+[Paper Link](https://arxiv.org/abs/2503.11297)
 
 ## Overview
 We propose a novel approach to video prediction by introducing the Global Focus Module (GFM) and Motion Guided Module (MGM), achieving new state-of-the-art (SOTA) performance. This recurrent neural network-based method effectively predicts the motion of video subjects while capturing global data features more comprehensively. It demonstrates strong performance, particularly in handling complex spatiotemporal data, such as rainfall prediction. This advancement offers a new general video prediction solution and provides fresh insights into the development of recurrent neural networks in the field of video prediction.
@@ -146,4 +149,14 @@ Our code is based on [OpenSTL](https://github.com/chengtan9907/OpenSTL) and [Mot
 ## Citation
 
 If you find this repository useful, please consider citing our paper:
-[Coming Soon]
+```
+@misc{du2025gmgvideopredictionmethod,
+      title={GMG: A Video Prediction Method Based on Global Focus and Motion Guided}, 
+      author={Yuhao Du and Hui Liu and Haoxiang Peng and Xinyuan Chen and Chenrong Wu and Jiankai Zhang},
+      year={2025},
+      eprint={2503.11297},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2503.11297}, 
+}
+```
