@@ -31,9 +31,9 @@ We propose a novel approach to video prediction by introducing the Global Focus 
 ## Get Start
 Our code is based on [OpenSTL](https://github.com/chengtan9907/OpenSTL). You need to migrate the model code to the OpenSTL framework to ensure a fairer comparison.
 - `configs/:` You can conduct experiments by adding the configs used by GMG.
-- `openstl/methods:` Contains defined training method of GMG. You need to add the file `gsamotionrnn.py` and replace the original `__init__.py`.
-- `openstl/models:` The basic structure code for GMG is included. You need to add the file `gsamotionrnn_model.py` and replace the original `__init__.py`.
-- `openstl/modules:` The main structure of GMG includes GMG-s, GMG-m, and GMG-L. The `gsamotion_modules.py` file contains the code for ST-ConvLSTM, Global Focus Module, and Self-Attention Memory. The code for the Motion Guided Module is included in `modules/layers/MotionGRU.py`. You need to add these files and replace the original `__init__.py` (in both directories).
+- `openstl/methods:` Contains defined training method of GMG. You need to add the file `GMG.py` and replace the original `__init__.py`.
+- `openstl/models:` The basic structure code for GMG is included. You need to add the file `GMG_model.py` and replace the original `__init__.py`.
+- `openstl/modules:` The main structure of GMG includes GMG-s, GMG-m, and GMG-L. The `GMG_modules.py` file contains the code for ST-ConvLSTM, Global Focus Module, and Self-Attention Memory. The code for the Motion Guided Module is included in `modules/layers/MotionGuided.py`. You need to add these files and replace the original `__init__.py` (in both directories).
 - `openstl/api:` For the model's experimental setup, you need to replace the original `__init__.py`.
 - `openstl/utils:` Please replace `parser.py`, as it pertains to the recognition of experiment command inputs.
 
@@ -46,7 +46,7 @@ python tools/train.py -d mmnist --epoch 600 -c configs/mmnist/GMG.py --ex_name m
 # TaxiBJ
 python tools/train.py -d taxibj --epoch 200 -c configs/taxibj/GMG.py --ex_name taxibj_GMG
 # WeatherBench
-python tools/train.py --gpus 0 1 2 3 -d weather --epoch 100 -c configs/weather/t2m_5_625/GMG.py --ex_name weather_GMG
+python tools/train.py --gpus 0 1 2 3 -d weather --epoch 100 -c configs/weather/GMG.py --ex_name weather_GMG
 ```
 
 ### Quantitative Results in CIKM2017 Dataset
