@@ -8,6 +8,7 @@
     <img src="https://img.shields.io/github/stars/duyhlzu/GMG" /></a>
 </p>
 Official repository for GMG: A Video Prediction Method Based on Global Focus and Motion Guided. 
+
 [Paper Link](https://arxiv.org/abs/2503.11297)
 
 ## Overview
