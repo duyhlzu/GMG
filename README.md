@@ -137,11 +137,11 @@ python tools/train.py --gpus 0 1 2 3 -d weather --epoch 100 -c configs/weather/G
 
 ## Datasets
 
-- [x] [CIKM2017](https://tianchi.aliyun.com/competition/entrance/231596/introduction) (CIKM' 2017) [[download](https://tianchi.aliyun.com/competition/entrance/231596/information)]
-- [x] [Shanghai2020](https://zenodo.org/records/7251972) (Dataset) [[download](https://zenodo.org/records/7251972)]
-- [x] [TaxiBJ](https://arxiv.org/abs/1610.00081) (AAAI'2017) [[download](https://github.com/TolicWang/DeepST/tree/master/data/TaxiBJ)]
-- [x] [WeatherBench](https://arxiv.org/abs/2002.00469) (ArXiv'2020) [[download](https://github.com/pangeo-data/WeatherBench)]
-- [x] [Moving MNIST](http://arxiv.org/abs/1502.04681) (ICML'2015) [[download](http://www.cs.toronto.edu/~nitish/unsupervised_video/)]
+-  [CIKM2017](https://tianchi.aliyun.com/competition/entrance/231596/introduction) (CIKM' 2017) [[download](https://tianchi.aliyun.com/competition/entrance/231596/information)]
+-  [Shanghai2020](https://zenodo.org/records/7251972) (Dataset) [[download](https://zenodo.org/records/7251972)]
+-  [TaxiBJ](https://arxiv.org/abs/1610.00081) (AAAI'2017) [[download](https://github.com/TolicWang/DeepST/tree/master/data/TaxiBJ)]
+-  [WeatherBench](https://arxiv.org/abs/2002.00469) (ArXiv'2020) [[download](https://github.com/pangeo-data/WeatherBench)]
+-  [Moving MNIST](http://arxiv.org/abs/1502.04681) (ICML'2015) [[download](http://www.cs.toronto.edu/~nitish/unsupervised_video/)]
 
 ## Acknowledgments
 
