@@ -37,7 +37,7 @@ Our code is based on [OpenSTL](https://github.com/chengtan9907/OpenSTL). You nee
 - `openstl/api:` For the model's experimental setup, you need to replace the original `__init__.py`.
 - `openstl/utils:` Please replace `parser.py`, as it pertains to the recognition of experiment command inputs.
 
-*Note:* Since OpenSTL does not include the MotionRNN code by default, we have provided the corresponding code. You can follow the same steps as above to add it. The original code for MotionRNN can be referenced from the work of [Wang Yunbo et al](https://github.com/thuml/MotionRNN).
+*Note:* Since OpenSTL does not include the MotionRNN code by default, we have provided the corresponding code. You can follow the same steps as above to add it. The original code for MotionRNN can be referenced from the work of [Haixu Wu et al](https://github.com/thuml/MotionRNN).
 
 ## Train
 ```
