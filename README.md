@@ -9,7 +9,7 @@
 </p>
 Official repository for GMG: A Video Prediction Method Based on Global Focus and Motion Guided. 
 
-[Paper Link: Arxiv](https://arxiv.org/abs/2503.11297)
+[Paper Link: Arxiv](https://arxiv.org/abs/2503.11297) \\
 [Paper Link: TCSVT (Prefer)](https://doi.org/10.1109/TCSVT.2026.3657055)
 
 *2026.01*: &nbsp;🎉🎉 GMG was accepted by IEEE Transactions on Circuits and Systems for Video Technology (TCSVT)! 
@@ -138,13 +138,32 @@ python tools/train.py --gpus 0 1 2 3 -d weather --epoch 100 -c configs/weather/G
 | WaST (AAAI’2024)               | 22.0719  | 70.8779  | 0.9491   | 23.7451  |
 | **GMG (Ours)**                 | **19.0741**| **60.7413**| **0.9586**| **24.4606**|
 
+
+### Quantitative Results in Typhoon Datasets
+
+| Model                          | MSE (↓)  | MAE/10 (↓) | RMSE (↓)  |
+|--------------------------------|----------|------------|-----------|
+| ConvLSTM (NeurIPS’2015)        | 224.389  | 125.000    | 14.9796   |
+| PredRNN (NeurIPS’2017)         | 216.077  | 122.643    | 14.6995   |
+| PredRNN++ (ICML’2018)          | 183.307  | 113.522    | 13.5390   |
+| MIM (CVPR’2019)                | 222.208  | 124.240    | 14.9066   |
+| MotionRNN (CVPR’2021)          | <u>160.656</u> | 107.228    | <u>12.6750</u> |
+| MAU (NeurIPS’2021)             | 166.581  | 109.660    | 12.9066   |
+| PredRNN-V2 (TPAMI’2022)        | 183.416  | 114.336    | 13.5431   |
+| SimVP-gSTA (CVPR’2022)         | 204.329  | 119.063    | 14.2943   |
+| TAU (CVPR’2023)                | 197.883  | 116.552    | 14.0671   |
+| WaST (AAAI’2024)               | 168.903  | <u>106.952</u> | 12.9962   |
+| **GMG (Ours)**                 | **158.794** | **106.381** | **12.6013** |
+
+
 ## Datasets
 
--  [CIKM2017](https://tianchi.aliyun.com/competition/entrance/231596/introduction) (CIKM' 2017) [[download](https://tianchi.aliyun.com/competition/entrance/231596/information)]
+-  [CIKM2017](https://tianchi.aliyun.com/competition/entrance/231596/introduction) (CIKM'2017) [[download](https://tianchi.aliyun.com/competition/entrance/231596/information)]
 -  [Shanghai2020](https://zenodo.org/records/7251972) (Dataset) [[download](https://zenodo.org/records/7251972)]
 -  [TaxiBJ](https://arxiv.org/abs/1610.00081) (AAAI'2017) [[download](https://github.com/TolicWang/DeepST/tree/master/data/TaxiBJ)]
 -  [WeatherBench](https://arxiv.org/abs/2002.00469) (ArXiv'2020) [[download](https://github.com/pangeo-data/WeatherBench)]
 -  [Moving MNIST](http://arxiv.org/abs/1502.04681) (ICML'2015) [[download](http://www.cs.toronto.edu/~nitish/unsupervised_video/)]
+-  [Digital Typhoon](https://arxiv.org/abs/2411.16421) (Dataset) [[download](https://github.com/kitamoto-lab/digital-typhoon?tab=readme-ov-file)]
 
 ## Acknowledgments
 
