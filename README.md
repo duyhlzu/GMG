@@ -10,8 +10,7 @@
 Official repository for GMG: A Video Prediction Method Based on Global Focus and Motion Guided. 
 
 [Paper Link: Arxiv](https://arxiv.org/abs/2503.11297)
-
-[Paper Link: TCSVT](https://doi.org/10.1109/TCSVT.2026.3657055)
+[Paper Link: TCSVT (Prefer)](https://doi.org/10.1109/TCSVT.2026.3657055)
 
 *2026.01*: &nbsp;🎉🎉 GMG was accepted by IEEE Transactions on Circuits and Systems for Video Technology (TCSVT)! 
 
