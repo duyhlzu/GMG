@@ -25,7 +25,7 @@ class self_attention_memory_module(nn.Module):  # SAM
         # Layer_ k2, v2 are for m (memory) layer
         # Layer_z, m are using after concatinating attention_h and attention_m layer
 
-        self.layer_q = nn.Conv2d(input_dim, hidden_dim, 1) #对应H的Q
+        self.layer_q = nn.Conv2d(input_dim, hidden_dim, 1)
         self.layer_k = nn.Conv2d(input_dim, hidden_dim, 1)
         self.layer_k2 = nn.Conv2d(input_dim, hidden_dim, 1)
         self.layer_v = nn.Conv2d(input_dim, input_dim, 1)
@@ -189,4 +189,5 @@ class GSAMSpatioTemporalLSTMCell(nn.Module):
 
         h_new = h_new + (1 - o_t) * motion_highway
         motion_highway = h_new
+
         return h_new, c_new, m_new, motion_highway
