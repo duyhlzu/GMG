@@ -173,12 +173,15 @@ Our code is based on [OpenSTL](https://github.com/chengtan9907/OpenSTL) and [Mot
 
 If you find this repository useful, please consider citing our paper:
 ```
-@article{du2025gmg,
-  title={GMG: A Video Prediction Method Based on Global Focus and Motion Guided},
-  author={Du, Yuhao and Liu, Hui and Peng, Haoxiang and Cheng, Xinyuan and Wu, Chenrong and Zhang, Jiankai},
-  journal={arXiv preprint arXiv:2503.11297},
-  year={2025}
-}
+@ARTICLE{11361248,
+  author={Du, Yuhao and Liu, Hui and Peng, Haoxiang and Cheng, Xinyuan and Wu, Chengrong and Zhang, Jiankai},
+  journal={IEEE Transactions on Circuits and Systems for Video Technology}, 
+  title={GMG: A Video Prediction Method Based on Global Focus and Motion Guided}, 
+  year={2026},
+  volume={},
+  number={},
+  pages={1-1},
+  doi={10.1109/TCSVT.2026.3657055}}
 ```
 ## Contact Us
 If you have any questions, please contact (duyh2024@lzu.edu.cn).
