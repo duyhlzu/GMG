@@ -34,7 +34,6 @@ class Warp(nn.Module):
         q_lt = p.detach().floor()
         q_rb = q_lt + 1
 
-
         q_lt = torch.cat([torch.clamp(q_lt[..., :N], 0, x.size(2) - 1), torch.clamp(q_lt[..., N:], 0, x.size(3) - 1)],
                          dim=-1).long()
         q_rb = torch.cat([torch.clamp(q_rb[..., :N], 0, x.size(2) - 1), torch.clamp(q_rb[..., N:], 0, x.size(3) - 1)],
@@ -42,7 +41,6 @@ class Warp(nn.Module):
 
         q_lb = torch.cat([q_lt[..., :N], q_rb[..., N:]], dim=-1)
         q_rt = torch.cat([q_rb[..., :N], q_lt[..., N:]], dim=-1)
-
 
         p = torch.cat([torch.clamp(p[..., :N], 0, x.size(2) - 1), torch.clamp(p[..., N:], 0, x.size(3) - 1)], dim=-1)
 
@@ -65,7 +63,9 @@ class Warp(nn.Module):
                    g_rt.unsqueeze(dim=1) * x_q_rt
 
         ## Warp Gate
+        m = m.contiguous().permute(0, 2, 3, 1)
         m = m.unsqueeze(dim=1)
+
         m = torch.cat([m for _ in range(x_warped.size(1))], dim=1)
         x_warped *= m
 
@@ -120,7 +120,6 @@ class Warp(nn.Module):
         x_warped = x_warped.contiguous().view(b, c, h * neighbour, w * neighbour)
         return x_warped
 
-
 class MotionGuided(nn.Module):
     def __init__(self, in_channel, motion_hidden, neighbour):
         super(MotionGuided, self).__init__()
@@ -137,7 +136,7 @@ class MotionGuided(nn.Module):
         self.output.register_backward_hook(self._set_lr)
 
         self.warp = Warp(in_channel, in_channel, neighbour)
-        self.global_growth_module = GlobalGrowthModule()  # Introduce a global feature module
+        self.global_growth_module = GlobalGrowthModule()
 
     @staticmethod
     def _set_lr(module, grad_input, grad_output):
@@ -151,8 +150,7 @@ class MotionGuided(nn.Module):
         offset = torch.tanh(self.output(torch.cat([x_t, pre_offset * reset_gate], dim=1)))
         offset = pre_offset * (1 - update_gate) + offset * update_gate
 
-        # Call the global growth module to adjust `mean` based on the global growth rate
-        mean = self.global_growth_module(mean, x_t)  # Adjust `mean` to incorporate global trends
+        mean = self.global_growth_module(mean, x_t)
         mean = mean + 0.5 * (pre_offset - mean)
         offset = offset + mean
 
@@ -164,35 +162,29 @@ class GlobalGrowthModule(nn.Module):
     def __init__(self, decay_factor=0.9):
         super(GlobalGrowthModule, self).__init__()
         self.decay_factor = decay_factor
-        self.global_pool = nn.AdaptiveAvgPool2d(1)  # Global average pooling for extracting global features
-        self.fc_global = nn.Linear(32, 1, bias=False)  # Fully connected layer for global trend prediction
-        self.alpha_fc = nn.Linear(32, 1, bias=True)  # Fully connected layer for dynamically adjusting α
-        self.beta_fc = nn.Linear(32, 1, bias=True)  # Fully connected layer for dynamically adjusting β
+        self.global_pool = nn.AdaptiveAvgPool2d(1)
+        self.fc_global = nn.Linear(32, 1, bias=False)
+        self.alpha_fc = nn.Linear(32, 1, bias=True)
+        self.beta_fc = nn.Linear(32, 1, bias=True)
 
-        # Initialize default values for balancing factors
         self.register_parameter("alpha_default", nn.Parameter(torch.tensor(0.5)))
         self.register_parameter("beta_default", nn.Parameter(torch.tensor(decay_factor)))
 
     def forward(self, mean, x):
-        # Extract global features
-        global_trend = self.global_pool(x).view(x.size(0), -1)  # Obtain global average features through pooling
+        global_trend = self.global_pool(x).view(x.size(0), -1)
 
-        # Dynamically compute α and β
-        alpha_dynamic = torch.sigmoid(self.alpha_fc(global_trend)).view(-1, 1, 1, 1)  # Dynamically compute α
-        beta_dynamic = torch.sigmoid(self.beta_fc(global_trend)).view(-1, 1, 1, 1)  # Dynamically compute β
+        alpha_dynamic = torch.sigmoid(self.alpha_fc(global_trend)).view(-1, 1, 1, 1)
+        beta_dynamic = torch.sigmoid(self.beta_fc(global_trend)).view(-1, 1, 1, 1)
 
-        # Balance dynamic and default α and β values
         alpha = 0.5 * self.alpha_default + 0.5 * alpha_dynamic
         beta = 0.5 * self.beta_default + 0.5 * beta_dynamic
 
-        # Compute growth rate
+
         growth_rate = torch.sigmoid(self.fc_global(global_trend)).view(-1, 1, 1, 1)
 
-        # Time decay
         time_steps = torch.arange(mean.size(0), dtype=torch.float32, device=mean.device).view(-1, 1, 1, 1)
         decay = torch.exp(-beta * time_steps)
 
-        # Adjust `mean`
         adjusted_mean = mean * decay + alpha * growth_rate * mean
 
         return adjusted_mean
